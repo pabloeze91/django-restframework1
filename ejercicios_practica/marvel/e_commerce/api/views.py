@@ -28,12 +28,6 @@ def comic_retrieve_api_view(request): #retrieve es recuperar, recuperar un objet
     instance = get_object_or_404( #importado de django
         Comic, id=request.query_params.get('id') #pasamos como parámetros el modelo asociado y un parámetro de ese modelo (por ej, el id). Si existe el parámetro, retorna el objeto (es un diccionario, no un listado) y si no existe, genera una excepción que devuelva un 404. El id es un parámetro dinámico que va al final de la url (/?id=1), podríamos hacerlo con marvel_id
     )
-    '''
-    d={'id':5}
-    d.get('id') devuelve 5 y si no existe devolvería None
-
-    http://localhost:8000/e-commerce/api/comic-retrieve/?id=1&name=pepe
-    '''
     return Response(
         data=model_to_dict(instance), status=status.HTTP_200_OK
     )
