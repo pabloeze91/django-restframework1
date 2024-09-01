@@ -1,5 +1,6 @@
 import json
 import pytest
+from pytest_fixtures import *
 
 from django.core.management import call_command
 from django.urls import reverse
