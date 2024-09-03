@@ -64,7 +64,7 @@ def comic_create_api_view(request): #este nombre de la view es lo que vemos en l
     
 @api_view(http_method_names=['GET'])
 def comic_list_filtered_api_view(request):
-    _queryset = Comic.objects.all().filter(price__gte=5) #me voy a buscar todos los comics con precio mayor o igual que 5
+    _queryset = Comic.objects.all().filter(price__gt=5) #me voy a buscar todos los comics con precio mayor o igual que 5
     _data = list(_queryset.values()) if _queryset.exists() else []
     return Response(data=_data, status=status.HTTP_200_OK)
 
